@@ -27,9 +27,14 @@ const baseConfig = {
         ]
     },
 
-    // Webpack tries these extensions for you if you omit the extension like "import './file'"
     resolve: {
-      extensions: ['.figma.tsx', '.figma.ts', 'figma.jsx', '.figma.js', '.tsx', '.ts', '.jsx', '.js']
+        "alias": {
+            "react": "preact/compat",
+            "react-dom/test-utils": "preact/test-utils",
+            "react-dom": "preact/compat"
+        },
+         // Webpack tries these extensions for you if you omit the extension like "import './file'"
+        extensions: ['.figma.tsx', '.figma.ts', 'figma.jsx', '.figma.js', '.tsx', '.ts', '.jsx', '.js']
     },
 
     output: {

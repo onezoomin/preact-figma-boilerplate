@@ -1,5 +1,4 @@
 import React from 'react';
-import 'react-figma/rpc';
 
 const onCreate = (ev:MouseEvent) => {
     const textbox = document.getElementById('count');
