@@ -21,13 +21,15 @@
   "license": "ISC",
   "dependencies": {
     "@figma/plugin-typings": "^1.16.1",
+    "png-ts": "^0.0.3",
     "react": "^16.9.0",
-    "react-figma": "latest"
+    "react-dom": "^17.0.2",
+    "react-figma": "latest",
+    "webpack-merge": "^5.8.0"
   },
   "devDependencies": {
     "html-webpack-inline-source-plugin": "^0.0.10",
     "html-webpack-plugin": "^3.2.0",
-    "react-figma-webpack-config": "latest",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
     "webpack": "^4.39.2",

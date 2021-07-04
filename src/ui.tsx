@@ -1,7 +1,5 @@
-import * as React from 'react';
-import { App } from './App';
+import React from 'react';
+import ReactDOM from 'react-dom'
+import { Buttons } from './Buttons';
 
-import 'react-figma/rpc';
-import { render } from 'react-figma';
-
-render(<App />);
+ReactDOM.render(Buttons(), document.getElementById('preact'));
