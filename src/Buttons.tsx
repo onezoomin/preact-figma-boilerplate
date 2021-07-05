@@ -1,30 +1,30 @@
-// import "tailwindcss/tailwind.css"
-// import 'figma-plugin-ds/dist/figma-plugin-ds.css'
+import { h } from 'preact'
+import { appendClassNames } from './utils'
 
-const onCreate = (ev: MouseEvent) => {
-    const textbox = document.getElementById('amount');
-    const count = parseInt((textbox as HTMLInputElement).value, 10);
-    parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*')
-  }
+const onCreate = (/* ev: MouseEvent */) => {
+  const textbox = document.getElementById('amount')
+  const count = parseInt((textbox as HTMLInputElement).value, 10)
+  parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*')
+}
 const onFractal = () => {
-    parent.postMessage({ pluginMessage: { type: 'fractal' } }, '*')
-  }
-  
-const onCancel = () => {
-    parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
-  }
+  parent.postMessage({ pluginMessage: { type: 'fractal' } }, '*')
+}
 
-export const Button = ({children = '', ...restProps}) => {
+const onCancel = () => {
+  parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+}
+
+export const Button = ({ children = '', className = '', ...restProps }) => {
   return (
-    <button class="button button--primary" {...restProps}>{children}</button>
+    <button {...appendClassNames('button', className)} {...restProps}>{children}</button>
   )
 }
 export const Buttons = () => {
-    return (
-        <div class="flex flex-row justify-around">
-            <Button onclick={onCreate} id="create">Create</Button>
-            <Button onclick={onCancel} id="cancel">Cancel</Button>
-            <Button onclick={onFractal} id="fractal">Fractal</Button>
-        </div>
-    );
-};
+  return (
+    <div className="flex flex-row justify-around">
+      <Button className="button--primary" onclick={onCreate} id="create">Create</Button>
+      <Button className="button--secondary" onclick={onFractal} id="fractal">Fractal</Button>
+      <Button className="button--secondary" onclick={onCancel} id="cancel">Cancel</Button>
+    </div>
+  )
+}
