@@ -1,9 +1,6 @@
-import { setupMainThread } from 'react-figma/rpc';
-import PNG from 'png-ts';
+// import PNG  from 'png-ts';
 
 figma.showUI(__html__);
-
-// setupMainThread();
 
 const baseImageFill = {
   blendMode: "NORMAL",

@@ -23,9 +23,6 @@
     "@figma/plugin-typings": "^1.16.1",
     "png-ts": "^0.0.3",
     "preact": "^10.5.14",
-    "react": "^16.9.0",
-    "react-dom": "^17.0.2",
-    "react-figma": "latest",
     "webpack-merge": "^5.8.0"
   },
   "devDependencies": {
