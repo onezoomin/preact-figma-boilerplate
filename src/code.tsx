@@ -1,4 +1,4 @@
-// import PNG  from 'png-ts';
+import PNG  from 'png-ts';
 
 figma.showUI(__html__);
 
@@ -24,25 +24,24 @@ const baseImageFill = {
 }
 // Finds all  frame nodes
 async function fractalize() {
-  console.log(figma.root)
-  // @ ts-expect-error 
-  // const nodes: FrameNode[] = figma.root.children[0].findChildren(node => node.type === "FRAME")
-  // for (const eachN of nodes) {
+  // @ts-expect-error 
+  const nodes: FrameNode[] = figma.currentPage.children.filter(node => node.type === "FRAME")
+  for (const N of nodes) {
+    const eachN:FrameNode = N
+    const newBytes = await eachN.exportAsync()
+    
+    const pngImage = PNG.load(newBytes);/* Uint8Array containing bytes of PNG image */
+    const pixels = pngImage.decodePixels(); // `pixels` is a 1D array (in rgba order) of decoded pixel data
+    console.log(pixels, eachN.getPluginData('z'))
 
-  //   const newBytes = await eachN.exportAsync()
-
-  //   const pngImage = PNG.load(newBytes);/* Uint8Array containing bytes of PNG image */
-  //   const pixels = pngImage.decodePixels(); // `pixels` is a 1D array (in rgba order) of decoded pixel data
-  //   console.log(pixels, eachN.getPluginData('z'))
-
-  //   const imageHash = figma.createImage(newBytes).hash
-  //   for (const eachC of (eachN.children[0] as GroupNode).children) {
-  //     const thisRect = (eachC as RectangleNode)
-  //     // console.log(thisRect, thisRect.fills)
-  //     // @ ts-expect-error 
-  //     // thisRect.fills = [{...baseImageFill, imageHash}]
-  //   }
-  // }
+    const imageHash = figma.createImage(newBytes).hash
+    for (const eachC of (eachN.children[0] as GroupNode).children) {
+      const thisRect = (eachC as RectangleNode)
+      console.log(thisRect, thisRect.fills)
+      // @ts-expect-error 
+      thisRect.fills = [{...baseImageFill, imageHash}]
+    }
+  }
 }
 
 
