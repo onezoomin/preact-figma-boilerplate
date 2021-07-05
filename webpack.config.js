@@ -18,7 +18,19 @@ const baseConfig = {
             { test: /\.tsx?$/, use: 'ts-loader', exclude: /node_modules/ },
 
             // Enables including CSS by doing "import './file.css'" in your TypeScript code
-            { test: /\.css$/, loader: [{ loader: 'style-loader' }, { loader: 'css-loader' }] },
+            { 
+                test: /\.css$/, 
+                use: [
+                    'style-loader',
+                    {
+                      loader: 'css-loader',
+                      options: {
+                        importLoaders: 1
+                      }
+                    },
+                    'postcss-loader'
+                ]
+            },
 
             // Allows you to use "<%= require('./file.svg') %>" in your HTML code to get a data URI
             { test: /\.(png|jpg|gif|webp|zip)$/, loader: [{ loader: 'url-loader' }] },

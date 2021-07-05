@@ -29,11 +29,17 @@
     "webpack-merge": "^5.8.0"
   },
   "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "css-loader": "^4",
     "html-webpack-inline-source-plugin": "^0.0.10",
     "html-webpack-plugin": "^3.2.0",
+    "postcss": "^8.3.5",
+    "postcss-loader": "^4",
+    "style-loader": "^2",
+    "tailwindcss": "^2.2.4",
     "ts-loader": "^6.0.4",
-    "typescript": "^3.5.3",
-    "webpack": "^4.39.2",
+    "typescript": "^4.2",
+    "webpack": "^4",
     "webpack-cli": "^3.3.7"
   }
 }

@@ -1,5 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom'
+import { render } from "preact";
+import "tailwindcss/tailwind.css"
+
 import { Buttons } from './Buttons';
 
-ReactDOM.render(Buttons(), document.getElementById('preact'));
+render(Buttons(), document.getElementById('preact'));
