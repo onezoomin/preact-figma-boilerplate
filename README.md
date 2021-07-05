@@ -7,9 +7,12 @@ Original template included:
 - Basic file structure
 - TypeScript configuration
 - Webpack configuration
-- using react-figma to manipulate the actual page with no actual UI
+- using react-figma to manipulate the document page with no actual UI
 
-Adapted to resemble the default figma ui plugin functionality and to use preact/compat
+Adapted to:
+- resemble the default figma ui plugin functionality 
+- use [preact](https://preactjs.com/) (without compat)
+- use ts with linting and VS code auto fix config
 
 
 ## Quick start
