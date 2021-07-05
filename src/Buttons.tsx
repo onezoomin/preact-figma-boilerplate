@@ -1,7 +1,8 @@
-import "tailwindcss/tailwind.css"
+// import "tailwindcss/tailwind.css"
+// import 'figma-plugin-ds/dist/figma-plugin-ds.css'
 
 const onCreate = (ev: MouseEvent) => {
-    const textbox = document.getElementById('count');
+    const textbox = document.getElementById('amount');
     const count = parseInt((textbox as HTMLInputElement).value, 10);
     parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*')
   }
@@ -15,7 +16,7 @@ const onCancel = () => {
 
 export const Button = ({children = '', ...restProps}) => {
   return (
-    <button class="p-2 border rounded-md border-black" {...restProps}>{children}</button>
+    <button class="button button--primary" {...restProps}>{children}</button>
   )
 }
 export const Buttons = () => {
