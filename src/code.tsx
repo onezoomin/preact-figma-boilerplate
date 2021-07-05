@@ -29,7 +29,7 @@ async function fractalize() {
   for (const N of nodes) {
     const eachN:FrameNode = N
     const newBytes = await eachN.exportAsync()
-    
+
     const pngImage = PNG.load(newBytes);/* Uint8Array containing bytes of PNG image */
     const pixels = pngImage.decodePixels(); // `pixels` is a 1D array (in rgba order) of decoded pixel data
     console.log(pixels, eachN.getPluginData('z'))
@@ -93,6 +93,7 @@ figma.ui.onmessage = async msg => {
     frame.name = `frame_${howMany}`
     frame.setPluginData('z', howMany.toString())
     frame.appendChild(newGroup)
+    frame.fills = []
     figma.currentPage.selection = [frame];
     figma.viewport.scrollAndZoomIntoView(nodes);
   }
